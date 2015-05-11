@@ -7,6 +7,7 @@ package pb138.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Dusan
  */
+@javax.servlet.annotation.WebServlet(name = "ActionServlet", urlPatterns = {"/upload", "/downloadFull", "/index", "/downloadSRGS", "downloadVoiceXML"})
 public class WebServlet extends HttpServlet {
 
     /**
@@ -26,23 +28,33 @@ public class WebServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */
+     * @throws java.net.URISyntaxException
+     */    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, URISyntaxException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet WebServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet WebServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
+         if (request.getServletPath().equals("/upload")) {
+             //uploadFile(request, response);
+         }   
+         
+         if (request.getServletPath().equals("/index")) {
+             request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
+         } 
+         
+         if (request.getServletPath().equals("/downloadFull")) {
+              //downloadFull(request, response);
+         }
+         
+         if (request.getServletPath().equals("/downloadSRGS")) {
+              //downloadSRGS(request, response);
+         }
+         
+         if (request.getServletPath().equals("/downloadVoiceXML")) {
+              //downloadVoiceXML(request, response);
+         }
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
