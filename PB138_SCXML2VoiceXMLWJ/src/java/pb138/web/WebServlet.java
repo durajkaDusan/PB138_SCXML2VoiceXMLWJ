@@ -54,7 +54,20 @@ public class WebServlet extends HttpServlet {
               //downloadVoiceXML(request, response);
          }
     }
-
+    
+    /**
+     * Class which handles uploading of an automaton to the web application.
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws URISyntaxException 
+     */
+    private void upload(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
