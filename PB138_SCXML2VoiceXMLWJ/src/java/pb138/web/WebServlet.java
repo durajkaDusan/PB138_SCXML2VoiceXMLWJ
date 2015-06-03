@@ -51,7 +51,7 @@ public class WebServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
          if (request.getServletPath().equals("/upload")) {
-             //uploadFile(request, response);
+             upload(request, response);
          }   
          
          if (request.getServletPath().equals("/index")) {
@@ -67,7 +67,7 @@ public class WebServlet extends HttpServlet {
          }
          
          if (request.getServletPath().equals("/downloadVXML")) {
-              //downloadVoiceXML(request, response);
+              download(request, response);
          }
     }
     
