@@ -25,17 +25,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletOutputStream; 
 
 /**
  *
  * @author Dusan Durajka
  */
-@javax.servlet.annotation.WebServlet(name = "ActionServlet", urlPatterns = {"/upload", "/downloadBoth", "/index", "/downloadSRGS", "downloadXML"})
+@javax.servlet.annotation.WebServlet(name = "ActionServlet", urlPatterns = {"/upload", "/downloadBoth", "/index", "/downloadSRGS", "downloadVXML"})
 public class WebServlet extends HttpServlet {
 
     private String path;
+    private File output;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,7 +50,7 @@ public class WebServlet extends HttpServlet {
      * @throws java.net.URISyntaxException
      */    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, URISyntaxException {
+            throws ServletException, IOException, URISyntaxException, TransformerException {
         response.setContentType("text/html;charset=UTF-8");
         
          if (request.getServletPath().equals("/upload")) {
@@ -81,9 +84,9 @@ public class WebServlet extends HttpServlet {
      * @throws URISyntaxException 
      */
     private void upload(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
+            throws ServletException, IOException, URISyntaxException, TransformerException {
        
-        //Create Path components to save the file
+        //Creates Path components to save the file at the server location
         final String destination = request.getParameter("destination");
         final Part part = request.getPart("file");
         final String name = getFileName(part);
@@ -94,19 +97,21 @@ public class WebServlet extends HttpServlet {
         final PrintWriter writer = response.getWriter();
         
         try {
-            out = new FileOutputStream(new File(path + File.separator + name));
+            
+            File source = new File(path + File.separator + name);
+            out = new FileOutputStream(source);
             in = part.getInputStream();
 
-            File source = new File(path + File.separator + name);
-            
             int read;
             final byte[] bytes = new byte[(int)source.length()];
             while ((read = in.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
             
-            File output = new File(path + File.separator + "output.vxml");
-                    
+            output = new File(path + File.separator + "output.vxml");
+            
+            output = this.transform(source, output);
+            request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
             /**
              * INSERT code handling transformations!
              * transform (File xslt, source, output)
@@ -135,16 +140,15 @@ public class WebServlet extends HttpServlet {
         
         final PrintWriter writer = response.getWriter();
         
-        File downloadFile = new File(path);
-        FileInputStream in = new FileInputStream(downloadFile);
+        FileInputStream in = new FileInputStream(output);
         
         ServletContext context = getServletContext();
         
         response.setContentType("application/octet-stream");
-        response.setContentLength((int) downloadFile.length());
+        response.setContentLength((int) output.length());
         
         String headerKey = "Content-Disposition";
-        String headerValue = String.format("attachment; filename=\"%s\"", downloadFile.getName());
+        String headerValue = String.format("attachment; filename=\"%s\"", output.getName());
         response.setHeader(headerKey, headerValue);
         
         try (OutputStream outStream = response.getOutputStream()) {
@@ -163,11 +167,11 @@ public class WebServlet extends HttpServlet {
     }
     
     
-    public File transform (File xslt, File source, File destination) 
+    public File transform (File source, File destination) 
            throws IOException, URISyntaxException, TransformerException {
         
         TransformerFactory factory = TransformerFactory.newInstance();
-        Source transformation = new StreamSource(xslt);
+        Source transformation = new StreamSource(new File("transformation.xslt"));
         Transformer transformer = factory.newTransformer(transformation);
 
         Source text = new StreamSource(source);
@@ -200,7 +204,13 @@ public class WebServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -214,7 +224,13 @@ public class WebServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
