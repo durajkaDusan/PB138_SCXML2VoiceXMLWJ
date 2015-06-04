@@ -29,16 +29,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream; 
+import javax.servlet.annotation.MultipartConfig;
 
 /**
  *
  * @author Dusan Durajka
  */
 @javax.servlet.annotation.WebServlet(name = "ActionServlet", urlPatterns = {"/upload", "/downloadBoth", "/index", "/downloadSRGS", "/download"})
+@MultipartConfig
 public class WebServlet extends HttpServlet {
 
     private String path;
-    private File output;
+    public File output;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -88,7 +90,8 @@ public class WebServlet extends HttpServlet {
             throws ServletException, IOException, URISyntaxException, TransformerException {
        
         //Creates Path components to save the file at the server location
-        final String destination = request.getParameter("destination");
+        String destination = System.getProperty("user.dir");
+        path = destination;
         final Part part = request.getPart("file");
         final String name = getFileName(part);
         
@@ -98,26 +101,23 @@ public class WebServlet extends HttpServlet {
         final PrintWriter writer = response.getWriter();
         
         try {
-            
+            int read;
             File source = new File(path + File.separator + name);
             out = new FileOutputStream(source);
             in = part.getInputStream();
 
-            int read;
-            final byte[] bytes = new byte[(int)source.length()];
+            
+            final byte[] bytes = new byte[1024];
             while ((read = in.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
-            
+            File xslt = new File("/transformation.xslt");
+            //writer.println("New file " + name + " created at " + path);
             output = new File(path + File.separator + "output.vxml");
             
-            output = this.transform(source, output);
-            request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
-            /**
-             * INSERT code handling transformations!
-             * transform (File xslt, source, output)
-             * request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
-             */
+            this.transform(xslt, source);
+            request.getRequestDispatcher("/index.html").forward(request, response);
+            
             
         } catch (FileNotFoundException fne) {
         writer.println("File to upload was not specified correctly or"
@@ -167,17 +167,14 @@ public class WebServlet extends HttpServlet {
         }
     }
     
-    
-    public File transform (File source, File destination) 
+    public void transform (File xslt, File source) 
            throws IOException, URISyntaxException, TransformerException {
-        
-        TransformerFactory factory = TransformerFactory.newInstance();
-        Source transformation = new StreamSource(new File("transformation.xslt"));
-        Transformer transformer = factory.newTransformer(transformation);
 
+        TransformerFactory factory = TransformerFactory.newInstance();
+        Source transformation = new StreamSource(xslt);
+        Transformer transformer = factory.newTransformer(transformation);
         Source text = new StreamSource(source);
-        transformer.transform(text, new StreamResult(destination));
-        return destination;
+        transformer.transform(text, new StreamResult(output));
     }
     
     //prerobit
@@ -192,56 +189,6 @@ public class WebServlet extends HttpServlet {
         return null;
         
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (TransformerException ex) {
-            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (TransformerException ex) {
-            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
+    
 }
