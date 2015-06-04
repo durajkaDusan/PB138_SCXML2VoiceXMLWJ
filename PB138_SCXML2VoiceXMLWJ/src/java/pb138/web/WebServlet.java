@@ -34,7 +34,7 @@ import javax.servlet.ServletOutputStream;
  *
  * @author Dusan Durajka
  */
-@javax.servlet.annotation.WebServlet(name = "ActionServlet", urlPatterns = {"/upload", "/downloadBoth", "/index", "/downloadSRGS", "downloadVXML"})
+@javax.servlet.annotation.WebServlet(name = "ActionServlet", urlPatterns = {"/upload", "/downloadBoth", "/index", "/downloadSRGS", "/download"})
 public class WebServlet extends HttpServlet {
 
     private String path;
@@ -48,6 +48,7 @@ public class WebServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      * @throws java.net.URISyntaxException
+     * @throws javax.xml.transform.TransformerException
      */    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, URISyntaxException, TransformerException {
@@ -69,7 +70,7 @@ public class WebServlet extends HttpServlet {
               //downloadSRGS(request, response);
          }
          
-         if (request.getServletPath().equals("/downloadVXML")) {
+         if (request.getServletPath().equals("/download")) {
               download(request, response);
          }
     }
