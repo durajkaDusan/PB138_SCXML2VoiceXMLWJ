@@ -30,7 +30,7 @@
     <body>                   
         <div class="container">
             <div class="uploadBox">
-                <h1>Welcome to SCXML Converter</h1>
+                <h1>Welcome to SCXML to Converter</h1>
                 <p>
                     Please select SCXML file from your computer:
                 </p>
@@ -49,6 +49,7 @@
                 </div>
                         
             </div>    
+                        
               
             <footer style="color: silver;">
                 <hr>
