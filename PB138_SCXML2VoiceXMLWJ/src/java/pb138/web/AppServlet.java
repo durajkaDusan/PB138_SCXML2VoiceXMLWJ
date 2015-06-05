@@ -48,6 +48,7 @@ public class AppServlet extends HttpServlet {
 
     
     private String path;
+    private File output;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -108,12 +109,14 @@ public class AppServlet extends HttpServlet {
                 out.write(bytes, 0, read);
             }
             
-                        
-            transform(path, fileName);                       
-             
-           
-            request.setAttribute("path", path + File.separator + "output.vxml");
+            String outputPath = path + File.separator + "output.vxml";
+            output = new File(outputPath);
+            output.getParentFile().mkdirs(); 
+            output.createNewFile();
             
+            transform(path, fileName);                       
+            
+            request.setAttribute("path", path + File.separator + "output.vxml");
             request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
             
         } catch (FileNotFoundException | TransformerException fne) {
@@ -135,14 +138,39 @@ public class AppServlet extends HttpServlet {
     }
     
     private void download(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition",
+        "attachment;filename=output.vxml");
+        
+        String fileName;
+        fileName = path + File.separator + "output.vxml";
+        
+        // Setting Streams
+        File file = new File(fileName);
+        FileInputStream fileIn = new FileInputStream(file);
+        ServletOutputStream out = response.getOutputStream();
+      
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = fileIn.read(buffer)) > 0){
+            out.write(buffer, 0, length);
+        }
+        
+        fileIn.close();
+        out.flush();
+        out.close(); 
+        
+        
+        /*
         response.setContentType("application/voicexml+xml"); 
-        response.setHeader("Content-Disposition", "attachment; filename=output.vxml"); // Force "Save As" dialogue.
+        response.setHeader("Content-Disposition", "attachment filename="+output.getName()+".vxml"); 
         
         OutputStream out = response.getOutputStream();
         
-        FileInputStream in = new FileInputStream(path + File.separator + "output.vxml");
+        FileInputStream in = new FileInputStream(output);
         
-        byte[] buffer = new byte[4096];
+        byte[] buffer = new byte[1024];
         int length;
         while ((length = in.read(buffer)) > 0){
             out.write(buffer, 0, length);
@@ -150,6 +178,7 @@ public class AppServlet extends HttpServlet {
         
         in.close();
         out.flush();
+        */
     }
     
     public void transform (String path, String name) throws TransformerConfigurationException, TransformerException, FileNotFoundException{
@@ -170,14 +199,15 @@ public class AppServlet extends HttpServlet {
             InputStream sourceInput = new FileInputStream(path + File.separator + name);
             Source text = new StreamSource(sourceInput);
             //Create output file
-            OutputStream outputStream = new FileOutputStream(new File(path + File.separator + "output.vxml"));
-            Result output = new StreamResult(outputStream);
+            //OutputStream outputStream = new FileOutputStream(output);
+            Result output2 = new StreamResult(output);
             //Transform
-            transformer.transform(text, output);
+            transformer.transform(text, output2);
             
         } catch (TransformerException e) {
             Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, e);
-        }
+        } 
+         
     }
     
     private String getFileName(final Part part) {
