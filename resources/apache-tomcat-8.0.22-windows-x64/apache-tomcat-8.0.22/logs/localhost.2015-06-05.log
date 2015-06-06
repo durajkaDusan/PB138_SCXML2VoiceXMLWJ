@@ -1,0 +1,402 @@
+05-Jun-2015 15:13:29.991 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:13:30.366 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 15:13:30.366 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 15:13:33.377 INFO [http-apr-8080-exec-4] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:17:45.540 INFO [http-apr-8080-exec-15] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:17:50.397 INFO [http-apr-8080-exec-22] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:18:16.864 INFO [http-apr-8080-exec-14] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:18:20.173 INFO [http-apr-8080-exec-27] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:18:43.934 INFO [http-apr-8080-exec-11] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:18:46.852 INFO [http-apr-8080-exec-28] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:19:13.274 INFO [http-apr-8080-exec-23] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:19:15.894 INFO [http-apr-8080-exec-20] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:20:12.970 INFO [http-apr-8080-exec-34] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:20:16.870 INFO [http-apr-8080-exec-42] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:22:43.059 SEVERE [http-apr-8080-exec-47] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp] threw exception
+ java.io.FileNotFoundException: Y:\MUNI\MODERNI_ZNACKOVACI\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\new.scxml (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at pb138.web.ActionServlet.downloadXML(ActionServlet.java:181)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:72)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:283)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 15:22:43.168 SEVERE [http-apr-8080-exec-46] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp] threw exception
+ java.io.FileNotFoundException: Y:\MUNI\MODERNI_ZNACKOVACI\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\new.scxml (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at pb138.web.ActionServlet.downloadXML(ActionServlet.java:181)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:72)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:283)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 15:22:48.682 SEVERE [http-apr-8080-exec-12] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp] threw exception
+ java.io.FileNotFoundException: Y:\MUNI\MODERNI_ZNACKOVACI\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\result.svg (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at pb138.web.ActionServlet.downloadSVG(ActionServlet.java:152)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:68)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:283)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 15:22:48.740 SEVERE [http-apr-8080-exec-49] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp] threw exception
+ java.io.FileNotFoundException: Y:\MUNI\MODERNI_ZNACKOVACI\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\result.svg (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at pb138.web.ActionServlet.downloadSVG(ActionServlet.java:152)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:68)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:283)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 15:23:36.193 INFO [http-apr-8080-exec-49] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:23:40.457 INFO [http-apr-8080-exec-54] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:34:12.232 INFO [http-apr-8080-exec-60] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:35:11.217 INFO [http-apr-8080-exec-67] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:57:53.538 INFO [http-apr-8080-exec-73] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:57:58.672 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 15:57:58.672 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+05-Jun-2015 15:58:14.885 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:58:15.275 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 15:58:15.275 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 15:58:17.985 INFO [http-apr-8080-exec-4] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:58:54.266 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 15:58:54.266 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+05-Jun-2015 15:59:04.227 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 15:59:04.577 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 15:59:04.577 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 16:17:56.040 SEVERE [http-apr-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp_23] threw exception
+ java.io.FileNotFoundException: Y:\MUNI\MODERNI_ZNACKOVACI\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\output.vxml (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at pb138.web.ActionServlet.download(ActionServlet.java:158)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:76)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:280)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 16:17:56.565 SEVERE [http-apr-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp_23] threw exception
+ java.io.FileNotFoundException: Y:\MUNI\MODERNI_ZNACKOVACI\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\output.vxml (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at pb138.web.ActionServlet.download(ActionServlet.java:158)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:76)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:280)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 16:43:22.667 SEVERE [62] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp_23] threw exception
+ java.lang.NullPointerException
+	at pb138.web.ActionServlet.transform(ActionServlet.java:233)
+	at pb138.web.ActionServlet.upload(ActionServlet.java:122)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:68)
+	at pb138.web.ActionServlet.doPost(ActionServlet.java:302)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 16:59:44.359 SEVERE [http-apr-8080-exec-97] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp_23] threw exception
+ java.io.FileNotFoundException: Y:\MUNI\MODERNI_ZNACKOVACI\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\transformation.xslt (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at pb138.web.ActionServlet.download(ActionServlet.java:154)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:76)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:303)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 18:08:33.557 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 18:08:33.557 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+05-Jun-2015 18:09:22.143 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 18:09:22.773 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 18:09:22.773 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 18:13:03.790 SEVERE [http-apr-8080-exec-18] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp_23] threw exception
+ java.io.FileNotFoundException: C:\Users\Dusan\output.vxml (The system cannot find the file specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at java.io.FileInputStream.<init>(FileInputStream.java:101)
+	at pb138.web.ActionServlet.download(ActionServlet.java:155)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:76)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:311)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 18:17:46.493 SEVERE [http-apr-8080-exec-31] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [ActionServlet] in context with path [/pb138-WebApp_23] threw exception
+ java.lang.NullPointerException
+	at pb138.web.ActionServlet.download(ActionServlet.java:164)
+	at pb138.web.ActionServlet.processRequest(ActionServlet.java:76)
+	at pb138.web.ActionServlet.doGet(ActionServlet.java:313)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:617)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:668)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2463)
+	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2452)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:724)
+
+05-Jun-2015 19:19:31.495 INFO [http-apr-8080-exec-46] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:20:34.019 INFO [http-apr-8080-exec-48] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:21:14.301 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 19:21:14.301 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+05-Jun-2015 19:32:19.189 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:32:19.559 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 19:32:19.559 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 19:32:22.979 INFO [http-apr-8080-exec-9] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:43:51.055 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 19:43:51.055 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+05-Jun-2015 19:55:59.553 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:55:59.992 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 19:55:59.992 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 19:56:03.519 INFO [http-apr-8080-exec-4] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:57:19.914 INFO [http-apr-8080-exec-13] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:57:22.327 INFO [http-apr-8080-exec-11] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 19:59:49.640 INFO [http-apr-8080-exec-23] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:03:12.939 INFO [http-apr-8080-exec-2] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:07:43.779 INFO [http-apr-8080-exec-29] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:07:47.604 INFO [http-apr-8080-exec-42] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:09:38.452 INFO [http-apr-8080-exec-47] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:09:41.530 INFO [http-apr-8080-exec-43] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:26:40.914 INFO [http-apr-8080-exec-59] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:26:43.948 INFO [http-apr-8080-exec-51] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:28:05.940 INFO [http-apr-8080-exec-52] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:28:15.951 INFO [http-apr-8080-exec-70] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:29:02.064 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 20:29:02.064 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+05-Jun-2015 20:32:21.660 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:32:22.070 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 20:32:22.070 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 20:32:24.887 INFO [http-apr-8080-exec-4] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:33:19.483 INFO [http-apr-8080-exec-10] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:33:31.532 INFO [http-apr-8080-exec-8] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:34:21.928 INFO [http-apr-8080-exec-19] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:34:26.618 INFO [http-apr-8080-exec-23] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:40:40.135 INFO [http-apr-8080-exec-32] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:40:43.501 INFO [http-apr-8080-exec-35] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:43:29.289 INFO [http-apr-8080-exec-33] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:45:13.676 INFO [http-apr-8080-exec-31] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:45:19.157 INFO [http-apr-8080-exec-48] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:48:01.392 INFO [http-apr-8080-exec-55] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:48:52.286 INFO [http-apr-8080-exec-50] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:49:00.644 INFO [http-apr-8080-exec-52] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:49:29.086 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 20:49:29.086 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+05-Jun-2015 20:49:41.510 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:49:41.907 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-Jun-2015 20:49:41.907 INFO [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-Jun-2015 20:51:22.425 INFO [http-apr-8080-exec-1] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 20:51:24.089 INFO [http-apr-8080-exec-7] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 21:31:11.249 INFO [http-apr-8080-exec-20] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 21:31:15.136 INFO [http-apr-8080-exec-17] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 21:35:38.340 INFO [http-apr-8080-exec-13] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 21:35:48.532 INFO [http-apr-8080-exec-24] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 21:35:53.855 INFO [http-apr-8080-exec-29] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 23:02:29.635 INFO [http-apr-8080-exec-43] org.apache.catalina.core.ApplicationContext.log No Spring WebApplicationInitializer types detected on classpath
+05-Jun-2015 23:02:39.832 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+05-Jun-2015 23:02:39.833 INFO [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
