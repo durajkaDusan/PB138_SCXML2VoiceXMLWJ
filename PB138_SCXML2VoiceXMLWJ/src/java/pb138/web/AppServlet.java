@@ -191,7 +191,7 @@ public class AppServlet extends HttpServlet {
         try {
             TransformerFactory factory = TransformerFactory.newInstance();
             //Access xslt file
-            InputStream input = getClass().getResourceAsStream("transformation.xsl");
+            InputStream input = getClass().getResourceAsStream("src/java/pb138/web/transformation.xsl");
             Source transformation = new StreamSource(input);
             //Create Transformer
             Transformer transformer = factory.newTransformer(transformation);
@@ -200,7 +200,7 @@ public class AppServlet extends HttpServlet {
             Source text = new StreamSource(sourceInput);
             //Create output file
             //OutputStream outputStream = new FileOutputStream(output);
-            Result output2 = new StreamResult(output);
+            Result output2 = new StreamResult(new File(path + File.separator+"output.vxml"));
             //Transform
             transformer.transform(text, output2);
             
