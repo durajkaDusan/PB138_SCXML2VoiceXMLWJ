@@ -18,7 +18,7 @@
                 encoding="UTF-8"
                 indent="yes"
                 standalone="no" />
-    <xsl:strip-space elements="/"/>
+   <!-- <xsl:strip-space elements="/"/> -->
                 
     <xsl:template match="/sc:scxml">
         <vxml xmlns="http://www.w3.org/2001/vxml" version="2.0">

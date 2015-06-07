@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.net.URISyntaxException;
+import java.util.Scanner;
 import javax.servlet.ServletContext;
 
 import javax.servlet.http.Part;
@@ -33,8 +34,6 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-
-import org.xml.sax.SAXException;
 
 
 
@@ -113,8 +112,8 @@ public class AppServlet extends HttpServlet {
             output = new File(outputPath);
             output.getParentFile().mkdirs(); 
             output.createNewFile();
-            
-            transform(path, fileName);                       
+                                           
+            transform(path, fileName); 
             
             request.setAttribute("path", path + File.separator + "output.vxml");
             request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
@@ -189,20 +188,17 @@ public class AppServlet extends HttpServlet {
             throw new NullPointerException("Name is set to null!");
         }
         try {
-            TransformerFactory factory = TransformerFactory.newInstance();
-            //Access xslt file
-            InputStream input = getClass().getResourceAsStream("src/java/pb138/web/transformation.xsl");
-            Source transformation = new StreamSource(input);
-            //Create Transformer
-            Transformer transformer = factory.newTransformer(transformation);
-            //Add uploaded file to Source
-            InputStream sourceInput = new FileInputStream(path + File.separator + name);
-            Source text = new StreamSource(sourceInput);
-            //Create output file
-            //OutputStream outputStream = new FileOutputStream(output);
-            Result output2 = new StreamResult(new File(path + File.separator+"output.vxml"));
-            //Transform
-            transformer.transform(text, output2);
+       
+            TransformerFactory tf = TransformerFactory.newInstance();
+            
+            Transformer xsltProc = tf.newTransformer(
+                    
+                    new StreamSource(getClass().getResourceAsStream("transformation.xsl")));
+
+            xsltProc.transform(
+                    new StreamSource(new File(path + File.separator + name)),
+                    new StreamResult(new File(path + File.separator + "output.vxml")));
+
             
         } catch (TransformerException e) {
             Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, e);
