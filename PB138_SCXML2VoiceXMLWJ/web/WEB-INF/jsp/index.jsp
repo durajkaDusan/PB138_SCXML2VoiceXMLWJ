@@ -12,29 +12,42 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css"> 
     </head>
 
-    <body>                   
+    <body>
+        <header>
+            <h1>SCXML2VXML</h1>
+            <p><b>State Chart XML to Voice XML Converter</b></p>
+            <p><i>School project for course PB138 at FI MUNI Brno.</i></p>
+        </header>
+        
         <div class="container">
+            
             <div class="uploadBox">
-                <h1>SCXML to VoiceXML Web Converter</h1>
-                <p>Please choose a SCXML file from your computer:</p>
+                <p class="innerP">Please choose a SCXML file from your computer:</p>
                 <form method="POST" action="upload" enctype="multipart/form-data" >
                     File:<input type="file" name="file" id="file" /><br/></br>
                     <input type="submit" value="Upload" name="upload" id="upload" />                    
                 </form>
             </div>
-            <hr>
+            
             <div class="codeBox">    
                 <div class="scxmlBox">
                     <form method="GET" action="download" >
-                        <input type="submit" value="Download SCXML file" name="DownloadXML" style="text-align: left"/>
+                        <input type="submit" value="Download" name="DownloadXML" style="text-align: left"/>
                     </form>                                         
                     
                 </div>
                         
             </div>    
-              
-            <footer>
-                <p style="text-align: left;"><a href="http://durajkadusan.github.io/PB138_SCXML2VoiceXMLWJ/">Project homepage</a><br />
+        </div>
+        
+        <div class="statusBar">
+            <p><b>Upload Status:</b> ${message}</p>
+            <p><b>SCXML Status:</b> ${messageSCXML}</p>
+        </div>
+        
+        <footer>
+                <p><b>Here you can find out more about our application:</b></p>
+                <p><a href="http://durajkadusan.github.io/PB138_SCXML2VoiceXMLWJ/">Project homepage</a><br />
                 <a href="https://github.com/durajkaDusan/PB138_SCXML2VoiceXMLWJ/wiki">Wiki</a><br /><br />
                 <b>Developers:</b><ul>
                                       <li>Dusan Durajka, <a href="https://is.muni.cz/auth/osoba/410406">410406</a></li>
@@ -44,6 +57,6 @@
                                   </ul>
                 </p>
             </footer>
-        </div>
+        
     </body>
 </h

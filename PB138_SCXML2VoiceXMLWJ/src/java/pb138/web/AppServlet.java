@@ -1,5 +1,7 @@
 package pb138.web;
 
+import pb138.transformer.Transformer;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,13 +9,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 import java.io.FileNotFoundException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.net.URISyntaxException;
-import javax.servlet.ServletContext;
 
 import javax.servlet.http.Part;
 import javax.servlet.ServletException;
@@ -24,22 +24,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.MultipartConfig;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
-
-import org.xml.sax.SAXException;
-
-
 
 /**
- *
+ *Main Class of whole utility. Handles upload and download.
+ * 
  * @author Dusan Durajka
  */
 @WebServlet(name = "AppServlet", urlPatterns = {"/upload", "/download", "/index"})
@@ -58,9 +47,11 @@ public class AppServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      * @throws java.net.URISyntaxException
+     * @throws javax.xml.transform.TransformerException
      */    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, URISyntaxException, TransformerException {
+            throws ServletException, IOException, URISyntaxException, TransformerException{
+        
         response.setContentType("text/html;charset=UTF-8");
         
          if (request.getServletPath().equals("/upload")) {
@@ -74,57 +65,82 @@ public class AppServlet extends HttpServlet {
          if (request.getServletPath().equals("/download")) {
               download(request, response);
          }
-         
-         
     }
     
+    /**
+     * Handles upload of file, calls transformation method, checks validity. 
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * @throws URISyntaxException
+     * @throws TransformerException 
+     */
     private void upload(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, URISyntaxException, TransformerException {
-        
-// Uploaded file destination
-        final PrintWriter writer = response.getWriter();
-        
+            throws URISyntaxException, IOException, ServletException{
+ 
+        //Acces server destination
         String destination = System.getProperty("user.dir");
-       
+        
+         // Create path components to save the file
         path = destination;
         final Part filePart = request.getPart("file");
         final String fileName = getFileName(filePart);
 
+        //Create streams
         OutputStream out = null;
         InputStream filecontent = null;
         
-
+        //Create writer 
+        final PrintWriter writer = response.getWriter();
+        
         try {
+            
             int read;
+            
+            //Get file from path, create streams
             File file = new File(path + File.separator + fileName);
-            
-            final byte[] bytes = new byte[1024];
-            
             out = new FileOutputStream(file);
-           
-            filecontent = filePart.getInputStream(); 
-           
+            filecontent = filePart.getInputStream();
             
+            //Upload logic
+            final byte[] bytes = new byte[1024];
             while ((read = filecontent.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
             
-            String outputPath = path + File.separator + "output.vxml";
-            output = new File(outputPath);
-            output.getParentFile().mkdirs(); 
-            output.createNewFile();
+            //Flush and close.
+            out.flush();
+            out.close();
             
-            transform(path, fileName);                       
+            //create instance of transformer class
+            Transformer transformer = new Transformer();
             
+            //transform scxml file to voicexml
+            String message = transformer.transform(path, fileName);
+            
+            //Set attributes for jsp page
+            request.setAttribute("message", "Your file " + fileName + "was uploaded at: " + path);
+            request.setAttribute("messageSCXML", message);
             request.setAttribute("path", path + File.separator + "output.vxml");
             request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
             
-        } catch (FileNotFoundException | TransformerException fne) {
+        } catch (FileNotFoundException  fne) {
             writer.println("<script>alert(\"You either did not specify a file to upload or are "
                     + "trying to upload a file to a protected or nonexistent "
                     + "location.\\nERROR: " + fne.getMessage() + "\");"
                     + "window.location.href = '/index'</script>");            
-        } finally {
+        } catch (TransformerException trans) {
+            writer.println("<script>alert(\"The file " + fileName 
+                    + "is not a valid scxml file. Please upload valid SCXML file!\\nERROR: " + trans.getMessage() + "\")</script>");
+        } catch (ServletException serv) {
+            writer.println("<script>alert(\"Servlet encountered an error.\\nERROR: " + serv.getMessage() + "\")</script>");
+        } catch (IOException io) {
+            writer.println("<script>alert(\"IO Error: .\\nERROR: " + io.getMessage() + "\")</script>");
+        } 
+        
+        finally {
             if (out != null) {
                 out.close();
             }
@@ -137,9 +153,17 @@ public class AppServlet extends HttpServlet {
         }        
     }
     
+    /**
+     * Handles downloading of file from server, forcing save as dialog window.
+     * 
+     * @param request
+     * @param response
+     * @throws IOException 
+     */
     private void download(HttpServletRequest request, HttpServletResponse response) throws IOException{
         
         response.setContentType("application/octet-stream");
+        //Force save as dialog window
         response.setHeader("Content-Disposition",
         "attachment;filename=output.vxml");
         
@@ -151,65 +175,25 @@ public class AppServlet extends HttpServlet {
         FileInputStream fileIn = new FileInputStream(file);
         ServletOutputStream out = response.getOutputStream();
       
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = fileIn.read(buffer)) > 0){
-            out.write(buffer, 0, length);
+        //download logic
+        byte[] outputByte = new byte[(int)file.length()];
+        //copy binary contect to output stream
+        while(fileIn.read(outputByte, 0, (int)file.length()) != -1) {
+                out.write(outputByte, 0, (int)file.length());
         }
         
+        //flush and close streams
         fileIn.close();
         out.flush();
         out.close(); 
-        
-        
-        /*
-        response.setContentType("application/voicexml+xml"); 
-        response.setHeader("Content-Disposition", "attachment filename="+output.getName()+".vxml"); 
-        
-        OutputStream out = response.getOutputStream();
-        
-        FileInputStream in = new FileInputStream(output);
-        
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = in.read(buffer)) > 0){
-            out.write(buffer, 0, length);
-        }
-        
-        in.close();
-        out.flush();
-        */
     }
-    
-    public void transform (String path, String name) throws TransformerConfigurationException, TransformerException, FileNotFoundException{
-        if (path == null) {
-            throw new NullPointerException("Path is set to null!");
-        }
-        if (name == null) {
-            throw new NullPointerException("Name is set to null!");
-        }
-        try {
-            TransformerFactory factory = TransformerFactory.newInstance();
-            //Access xslt file
-            InputStream input = getClass().getResourceAsStream("src/java/pb138/web/transformation.xsl");
-            Source transformation = new StreamSource(input);
-            //Create Transformer
-            Transformer transformer = factory.newTransformer(transformation);
-            //Add uploaded file to Source
-            InputStream sourceInput = new FileInputStream(path + File.separator + name);
-            Source text = new StreamSource(sourceInput);
-            //Create output file
-            //OutputStream outputStream = new FileOutputStream(output);
-            Result output2 = new StreamResult(new File(path + File.separator+"output.vxml"));
-            //Transform
-            transformer.transform(text, output2);
-            
-        } catch (TransformerException e) {
-            Logger.getLogger(WebServlet.class.getName()).log(Level.SEVERE, null, e);
-        } 
-         
-    }
-    
+  
+    /**
+     * Inspects name of a file uploaded by user.
+     * 
+     * @param part
+     * @return Name of the uploaded file
+     */
     private String getFileName(final Part part) {
         final String partHeader = part.getHeader("content-disposition");
         for (String content : part.getHeader("content-disposition").split(";")) {
@@ -239,7 +223,7 @@ public class AppServlet extends HttpServlet {
             Logger.getLogger(AppServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
             Logger.getLogger(AppServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
 
     /**
@@ -259,7 +243,7 @@ public class AppServlet extends HttpServlet {
             Logger.getLogger(AppServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
             Logger.getLogger(AppServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
 
     /**
