@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+    	<title>Záverečná správa</title>
+    	<subtitle>SCXML to VoiceXML Converter</subtitle>
+        <author>
+            <firstname>Dušan</firstname>
+            <surname>Ďurajka</surname>
+        </author>
+    </articleinfo>
+    <section>
+    	<title>Návrh a realizácia projektu</title>
+    	<para>Pri návrhu projektu bolo mojou úlohou zaoberať sa fungovaním webovej aplikácie. Vybral som si prístup cestou jednoduchej a prehľadnej stránky, ktorá bude uživateľsky prívetivá a rýchla.</para>
+        <para> Samotnú realizáciu aplikácie som založil na nosnom servlete, ktorý spracovával všetky požiadavky užívateľa. Pri práci som si musel pripomenúť základnú prácu s Java prostredím z predmetu PV168. Dlhší čas som strávil pri práci s cestami k súborom, ktorá mi zo začiatku nebola úplne jasná. S problémom som sa však na základe špecifikácií a rôznych návodov vysporiadal.</para>
+    </section>
+    <section>
+	<title>Práca v tíme</>
+    	<para>Zaujímavou skúsenosťou bolo aj pracovať v týme ľudí, nástojiť na termínoch a snažiť sa dostať z kolegov maximálnu nasadenosť. Táto úloha sa často ukázala ťažkou ako samotný vývoj. Počas práce sme sa potýkali s problémom časovej náročnosti popri ostatných povinnostiach. V tomto ohľade je určite ešte priestor na zlepšovanie sa u každého člena týmu.</para>
+    </section>
+    <section>
+        <title>Zhodnotenie projektu</title>
+        <para>V rámci tohto projektu som mal skvelú príležitosť pracovať s technológiami, ktoré mi boli predtým skoro neznáme. Obohatila ma najmä skúsenosť s nástrojom GitHub. Zaujímavé však bolo aj široké spektrum možností využitia jazyka XML. VoiceXML, s ktorým sme pracovali, je rozhodne projektom hodným pozornosti.</para>
+    </section>
+</article>
