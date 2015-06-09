@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+    	<title>Záverečná správa</title>
+    	<subtitle>Aplikácia na prevod konečného automatu popísaného pomocou SCXML na dialógovú stratégiu popísanú pomocou VoiceXML</subtitle>
+        <author>
+            <firstname>Milan</firstname>
+            <surname>Špičuk</surname>
+        </author>
+    </articleinfo>
+    <section>
+    	<title>Implementácia transformácie do javy a UML diagramy</title>
+    	<para>Mojou hlavnou úlohou v projekte bolo implementovať transfromáciu v jave a postarať sa o to aby sa správne vykonávala a ošetriť ju na nevalidné vstupy. K tomuto som použil  transformer z java knižnice javax.xml.transform.Transformer. Čo mi robilo najväčší problém bolo určovanie cesty k súborom, keďže mi nebolo celkom jasné ako tomcat ukladá nahraté súbory z webovej stránky.</para>
+                 <para>Mojou ďalšou úlohou bolo vytvoriť UML diagramy pre návrh aplikácie. Konkrétne use case diagram a class diagram. To som učinil za pomoci programu Visual Paradigm 11.2</para>
+    </section>
+   <section>
+                <title>Iné</title>
+                <para>Na čom som sa ešte podieľal, bolo vytváranie časti dokumentácie v github wiki, javadoc a minoritné úpravy na projekte </para>
+   </section>
+    <section>
+        <title>Celkové zhodnotenie projektu</title>
+        <para>Projekt bol zaujímavý, aj keď technológie na ňom použité sú mi nie príliš blízke. Vidím v tom však veľký priestor kde sa ešte zlepšovať. Spoluprácu v tíme považujem za významnú skúsenosť. Ukázala mi niektoré úskalia práce s inými ľudmi, spoliehanie sa na druhých ale aj spoliehanie sa druhých na mňa. Vďaka tomu budem pri ďalších projektoch tu na univerzite alebo aj v pracovnom živote lepšie zvládať kolektívnu prácu a byť plnohodnotnejším členom tímu.</para>
+    </section>
+</article>
