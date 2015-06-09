@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.annotation.WebServlet;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -38,12 +39,15 @@ public class Transformer {
        
             TransformerFactory tf = TransformerFactory.newInstance();
             
+            // create XSLT transformer
             javax.xml.transform.Transformer xsltProc = tf.newTransformer(
-                    
                     new StreamSource(getClass().getResourceAsStream("transformation.xsl")));
             
-            System.out.println(path + File.separator + name);
-
+            // set it up for formatting
+            xsltProc.setOutputProperty(OutputKeys.INDENT, "yes");
+            xsltProc.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            
+            // and transform the file
             xsltProc.transform(
                     new StreamSource(new File(path + File.separator + name)),
                     new StreamResult(new File(path + File.separator + "output.vxml")));

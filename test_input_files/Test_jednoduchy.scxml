@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:vxml="http://www.w3.org/2001/vxml" version="1.0" initial="Uvod">
+    <datamodel>
+        <data id="Grammar" expr="./gramatika.grxml"/>
+    </datamodel>
+    <state id="Uvod">
+        <onentry>
+            <vxml:prompt>Vítejte!</vxml:prompt>
+        </onentry>
+        <onexit>
+            <vxml:assign name="Start" expr="true"/>
+        </onexit>
+    </state>
+    <state id="Like">
+        <onentry>
+            <vxml:prompt>Líbí se Vám SCXML?</vxml:prompt>
+            <vxml:prompt count="2">Možnosti jsou ano nebo ne.</vxml:prompt>
+        </onentry>
+        <datamodel>
+            <data id="Like" expr="./registration.grxml#anone"/>
+        </datamodel>
+        <transition event="Like" target="All"/>
+    </state>
+    <state id="All">
+        <onentry>
+            <vxml:prompt>Zadal jste <vxml:value expr="Like"/>. Souhlasíte se svou volbou?</vxml:prompt>
+            <vxml:prompt count="2">Ano nebo ne?</vxml:prompt>
+        </onentry>
+        <datamodel>
+            <data id="yesno" expr="./registration.grxml#anone"/>
+        </datamodel>
+        <transition event="ne" target="Like"/>
+        <transition event="ano" target="Submit"/>
+    </state>
+    <final id="Submit">
+        <onentry>
+            <vxml:submit src="uri" namelist="Like"/>
+        </onentry>
+    </final>
+</scxml>

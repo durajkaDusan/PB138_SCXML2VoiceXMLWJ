@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:vxml="http://www.w3.org/2001/vxml" version="1.0" initial="Test">
+    <datamodel>
+        <data id="Grammar" expr="./gramatika.grxml"/>
+    </datamodel>
+    <state id="Test">
+        <onentry>
+            <vxml:prompt>Líbí se Vám tato chyba?</ahoj>
+            <vxml:prompt count="2">Možnosti jsou ano nebo ne.</vxml:prompt>
+        </onentry>
+        <datamodel>
+            <data id="Like" expr="./registration.grxml#anone"/>
+        </datamodel>
+        <transition event="Like" target="All"/>
+    </state>
+</scxml>

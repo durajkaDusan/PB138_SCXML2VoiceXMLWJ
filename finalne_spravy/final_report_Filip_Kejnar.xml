@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+    	<title>Závěrečná zpráva</title>
+    	<subtitle>Aplikace na převod konečného automatu popsaného pomocí SCXML na dialogovou strategii popsanou pomocí VoiceXML</subtitle>
+        <author>
+            <firstname>Filip</firstname>
+            <surname>Kejnar</surname>
+        </author>
+    </articleinfo>
+    <section>
+    	<title>Návrh a realizace projektu</title>
+    	<para>Mým úkolem bylo vytvořit funkční XSLT transformaci, která převede vstupní SCXML, pro který platí určitá omezení v rámci State Chart XML, na validní Voice XML soubor.</para>
+        <para>Tento úkol až na výjimky znamenal práci na jednom .xsl souboru. Vytvářel jsem postupně pravidla pro zadané elementy a několik logických pravidel, která vyžadovala pokročilejší práci s XSLT a XPATH. Zmiňovanou výjimkou bylo zasažení do transformační metody v Transformer.java, kde bylo pro lepší čitelnost výstupního souboru nutné zapnout odsazování (angl. indent).</para>
+    </section>
+    <section>
+        <title>Celkové zhodnocení projektu</title>
+        <para>Během práce jsem se seznámil s dvěma novými specifikacemi XML, které jsou podle počtu článků v Internetových diskusích poměrně rozšířeny a jsou stále vyvíjeny. Za největší přínos však považuji zkušenosti s průběžným vypracováváním úkolů a prací v týmu, které mohu i po dokončení projektu dále rozvíjet. Oceňuji také zkušenost s často používaným repozitářem GitHub.</para>
+    </section>
+</article>
