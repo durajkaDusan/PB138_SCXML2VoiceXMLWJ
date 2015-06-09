@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+    <articleinfo>
+    	<title>Záverečná správa</title>
+    	<subtitle>Aplikácia na prevod konečného automatu popísaného pomocou SCXML na dialógovú stratégiu popísanú pomocou VoiceXML</subtitle>
+        <author>
+            <firstname>Jana</firstname>
+            <surname>Szabadošová</surname>
+        </author>
+    </articleinfo>
+    <section>
+    	<title>Návrh a realizácia projektu</title>
+    	<para>Mojou hlavnou úlohou bola práca s HTML, CSS a JSP stránkami. Taktiež som sa podieľala na práci s webovou aplikáciou a pripravovala som záverečnú prezentáciu. Práca s HTML zahŕňala vytvorenie stránky pomocou HTML tagov. Zamerala som sa na logické formátovanie a štýlovanie pomocou kaskádových štýlov. Bolo by na škodu publikovať kvalitnú aplikáciu v základnom (prednastavenom) štýle. No tiež by nebola vhodná nadmerne graficky upravená stránka, ktorá by bola neprehľadná a mohla by znižovať rýchlosť načítania prehliadačom. Práve preto je náš projekt prezentovaný v modernom dizajne, ktorý je jednoduchý a prehľadný.</para>
+      <para>Aplikácia tiež pracuje s technológiou JSP, ktorá pomáha pri obsluhe dynamicky generovaných webových stránok. Pomocou skriptletov som do HTML kódu mohla vkladať kód v Jave. Každá JSP je pri svojom prvom prístupe prekompilovaná do servletu, čo môže pri prvom spustení spôsobiť mierne zdržanie, no potom už pracuje dostatočne rýchlo.</para>
+    </section>
+    <section>
+        <title>Celkové zhodnotenie projektu</title>
+        <para>Počas práce na projekte som mala príležitosť vyskúšať si prácu v tíme. Vďaka spolupráci s otatnými členmi tímu som získala nové znalosti a skúsenosti. Pri práci na projekte sme využili verzovací systém GIT, ktorý sa po absolvovaní Rýchlokurzu Gitu pod vedením p. doktora Gráca, ukázal ako dobrý pomocník pri koordinácii tímovej práce. Nadobudnuté skúsenosti mi určite pomôžu pri práci na budúcich projektoch či už školských alebo pracovných.</para>
+    </section>
+</article>
